@@ -19,7 +19,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ExceptionMiddleware>();
-app.UseStatusCodePagesWithReExecute("/erros/{0}");
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 
 app.UseSwaggerDocumentation();

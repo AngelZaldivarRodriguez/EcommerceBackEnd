@@ -44,7 +44,7 @@ namespace Ecommerce.Extensions
 
                     var errorResponse = new ApiValidationErrorResponse
                     {
-                        Erros = errors
+                        Errors = errors
                     };
 
                     return new BadRequestObjectResult(errorResponse);

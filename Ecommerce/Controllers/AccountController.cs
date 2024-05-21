@@ -50,6 +50,7 @@ namespace Ecommerce.Controllers
             return await _userManager.FindByEmailAsync(email) != null;
         }
 
+        [Authorize]
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
@@ -92,7 +93,7 @@ namespace Ecommerce.Controllers
             {
                 return new BadRequestObjectResult(new ApiValidationErrorResponse
                 {
-                    Erros = new[] { "Email address is in use" }
+                    Errors = new[] { "Email address is in use" }
                 });
                 
             }
