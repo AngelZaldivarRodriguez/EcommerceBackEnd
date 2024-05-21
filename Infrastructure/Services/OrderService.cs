@@ -35,7 +35,6 @@ namespace Infrastructure.Services
                 order.ShipToAddress = shippingAddress;
                 order.DeliveryMethod = deliveryMethods;
                 order.Subtotal = subTotal;
-                order.OrderItems = items;
                 _unitOfWork.Repository<Order>().Update(order);
             }
             else
