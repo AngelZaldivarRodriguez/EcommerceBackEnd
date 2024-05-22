@@ -17,11 +17,12 @@ namespace Ecommerce.Extensions
             
             services.AddDbContext<StoreContext>(opt =>
             {
-                opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+                opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             });
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
                 var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
+                options.AbortOnConnectFail = false;
                 return ConnectionMultiplexer.Connect(options);
             });
             services.AddSingleton<IResponseCacheService, ResponseCacheService>();
